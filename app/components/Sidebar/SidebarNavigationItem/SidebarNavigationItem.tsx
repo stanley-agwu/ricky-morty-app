@@ -1,7 +1,7 @@
 import { MouseEvent, ReactNode } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 
-import styles from './SidebarNavigation.module.scss';
+import styles from './SidebarNavigationItem.module.scss';
 import classNames from 'classnames';
 import Image from 'next/image';
 
