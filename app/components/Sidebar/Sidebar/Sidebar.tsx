@@ -2,6 +2,7 @@
 
 import {
   Fragment,
+  MutableRefObject,
   ReactElement,
   cloneElement,
   useEffect,
@@ -20,6 +21,7 @@ export interface SidebarProps {
   trigger?: JSX.Element;
   children: ReactElement;
   stickyHeader?: boolean;
+  titleBorder?: boolean;
   hideClose?: boolean;
   clickOutsideEnabled?: boolean;
   drawerOptions?: DrawerProps;
@@ -36,6 +38,7 @@ export const Sidebar = ({
   clickOutsideEnabled,
   drawerOptions,
   title,
+  titleBorder,
   onClose,
 }: SidebarProps): JSX.Element => {
   const [visibility, setVisibility] = useState(visible);
@@ -60,16 +63,27 @@ export const Sidebar = ({
   return (
     <Fragment>
       {trigger &&
-        cloneElement(trigger, { onClick: setVisibility(!visibility) })}
-      <Drawer {...drawerOptions} anchor='right' open={visibility}>
+        cloneElement(trigger, { onClick: () => setVisibility(!visibility) })}
+      <Drawer {...drawerOptions} anchor='left' open={visibility}>
         <div
-          className={classNames(styles.header, stickyHeader && styles.sticky)}
+          ref={ref as MutableRefObject<any>}
+          id='sidebar'
+          className={styles.sidebar}
         >
-          <div className={classNames(styles.headerContent)}>
-            {title && <h3>{title}</h3>}
-            {!hideClose && <button onClick={onCloseFn}>Close</button>}
+          <div
+            className={classNames(styles.header, stickyHeader && styles.sticky)}
+          >
+            <div
+              className={classNames(
+                styles.headerContent,
+                titleBorder && styles.titleBorder
+              )}
+            >
+              {title && <h3 className={styles.title}>{title}</h3>}
+              {!hideClose && <button onClick={onCloseFn}>Close</button>}
+            </div>
           </div>
-          <div>{children}</div>
+          <div className={styles.headerContent}>{children}</div>
         </div>
       </Drawer>
     </Fragment>

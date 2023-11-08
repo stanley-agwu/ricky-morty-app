@@ -5,6 +5,8 @@ import SidebarNavigationItem from '../SidebarNavigationItem/SidebarNavigationIte
 import styles from './SidebarNavigation.module.scss';
 import classNames from 'classnames';
 
+import icon from '../../../logo.svg';
+
 interface SidebarItemProps {
   className?: string;
   onSelectItem?: (event: MouseEvent) => void;
@@ -13,8 +15,8 @@ interface SidebarItemProps {
 
 const Characters = ({ className, onSelectItem, title }: SidebarItemProps) => (
   <SidebarNavigationItem
-    icon='abcd'
-    className={classNames(styles.navigationItem, className || '')}
+    icon={icon}
+    className={className ?? ''}
     to='/'
     name={title}
     onClick={onSelectItem}
