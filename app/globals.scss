@@ -1,0 +1,22 @@
+@import '~styles/main';
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &::-webkit-scrollbar {
+    width: $space;
+    height: $space;
+  }
+  &::-webkit-scrollbar-track {
+    background: $c-neutral-20;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $c-neutral-60;
+    border-radius: $space * 0.5;
+  }
+}
+
+body {
+  background: $c-neutral-0;
+}
