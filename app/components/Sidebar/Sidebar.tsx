@@ -18,9 +18,9 @@ export const SidebarMenuTitle = ({
   className,
   ...props
 }: SidebarMenuTitle) => (
-  <h2 className={classNames(styles.title, className)} {...props}>
+  <h1 className={classNames(styles.title, className)} {...props}>
     {children}
-  </h2>
+  </h1>
 );
 
 export const SidebarMenuIcon = ({
@@ -55,7 +55,7 @@ export const SidebarMenuItem = forwardRef<HTMLElement, SidebarMenuItemProps>(
       tabIndex: 0,
       ref,
       ...props,
-      children: <span className={styles.itemTitle}>{children}</span>,
+      children: <div className={styles.itemTitle}>{children}</div>,
       className: classNames(props.className, styles.item, {
         [styles.active]: active,
       }),

@@ -1,20 +1,18 @@
-$sidebar-width: 180px;
-$space: 8px;
-$space-2: 16px;
-$space-3: 24px;
-$space-4: 32px;
-$space-5: 40px;
+@import '~styles/main';
 
-h2.title {
-  padding: $space-5 0 $space-2 $space-3;
+$sidebar-width: 200px;
+
+h1.title {
+  padding: $space-5 $space $space $space-3;
   word-break: break-all;
-  font-size: 16px;
-  color: #000;
-  margin-bottom: 150px;
+  font-size: $largeFontSize;
+  color: $c-navy-80;
+  margin-bottom: 100px;
+  font-weight: $boldFontWeight;
 }
 
 .menu {
-  border-right: 1px solid grey;
+  border-right: 2px solid $c-neutral-30;
   width: $sidebar-width;
   height: 100%;
 
@@ -30,51 +28,47 @@ h2.title {
     all: unset;
     padding: $space $space * 1.5;
     cursor: pointer;
-    border-radius: $space;
-    margin: $space 0;
+    border-radius: $space * 0.5;
+    margin: calc($space / 2) 0;
+
+    &:hover {
+      background-color: $c-neutral-30;
+    }
   }
 
   .icon {
     display: inline-block;
     margin-right: $space;
+
+    path,
+    circle {
+      stroke: cyan;
+    }
+
+    &:focus-within,
+    &:focus,
+    &.active {
+      background-color: lightcyan;
+
+      & > .itemTitle {
+        color: lightslategrey;
+      }
+
+      .icon path,
+      .icon circle {
+        stroke: lightslategrey;
+      }
+    }
   }
 
-  & > .itemTitle {
+  .itemTitle {
     align-items: center;
     display: flex;
     flex: 0;
     word-wrap: break-word;
     word-break: break-all;
-    font-size: 16px;
-    color: #000;
-    flex-direction: row;
-
-    & > div * {
-      font-size: 14px;
-    }
-  }
-
-  path,
-  circle {
-    stroke: cyan;
-  }
-
-  &:focus-within,
-  &:focus,
-  &.active {
-    background-color: lightcyan;
-
-    & > .itemTitle {
-      color: lightslategrey;
-    }
-
-    .icon path,
-    .icon circle {
-      stroke: lightslategrey;
-    }
-  }
-
-  &:hover {
-    background-color: lightcyan;
+    font-size: $smallfontSize;
+    color: $c-navy-80;
+    font-weight: $semiBoldFontWeight;
   }
 }
