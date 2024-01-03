@@ -10,33 +10,35 @@ import styles from './SidebarMenu.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Outlet } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
+import { routes } from '@/app/config/routes';
 
 const SidebarMenu = () => {
-  const isCharactersSelected = true;
+  const pathname = usePathname();
   return (
     <Sidebar>
       <Sidebar.MenuTitle>Ricky Morty App</Sidebar.MenuTitle>
       <Sidebar.MenuList>
         <Sidebar.MenuItem
           Wrapper={Link}
-          href={'/characters'}
-          active={isCharactersSelected}
+          href={routes.characters}
+          active={pathname === routes.characters}
         >
           <SidebarMenuIcon icon={<Image src={Characters} alt='Characters' />} />
           Characters
         </Sidebar.MenuItem>
         <Sidebar.MenuItem
           Wrapper={Link}
-          href={'/characters'}
-          active={!isCharactersSelected}
+          href={routes.locations}
+          active={pathname === routes.locations}
         >
           <SidebarMenuIcon icon={<Image src={Locations} alt='Locations' />} />
           Locations
         </Sidebar.MenuItem>
         <Sidebar.MenuItem
           Wrapper={Link}
-          href={'/characters'}
-          active={!isCharactersSelected}
+          href={routes.episodes}
+          active={pathname === routes.episodes}
         >
           <SidebarMenuIcon icon={<Image src={Episodes} alt='Episodes' />} />
           Episodes

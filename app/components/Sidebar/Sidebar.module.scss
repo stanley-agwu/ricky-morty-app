@@ -36,6 +36,27 @@ h1.title {
     }
   }
 
+  .active {
+    .itemTitle {
+      color: $c-orange-80;
+      background-color: $c-neutral-30;
+      img.icon {
+        color: $c-orange-80;
+        svg {
+          path {
+            stroke: red !important;
+          }
+        }
+      }
+    }
+    color: $c-orange-80;
+    background-color: $c-neutral-30;
+    .icon path,
+    .icon circle {
+      stroke: $c-orange-80;
+    }
+  }
+
   .icon {
     display: inline-block;
     margin-right: $space;
