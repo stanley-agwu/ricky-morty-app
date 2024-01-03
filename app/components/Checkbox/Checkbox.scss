@@ -1,0 +1,18 @@
+@import '~styles/main';
+
+.MuiFormControlLabel-root,
+.MuiCheckbox-root {
+  .MuiSvgIcon-root {
+    font-size: $baseFontSize;
+  }
+
+  input[data-indeterminant='true'] + .MuiSvgIcon-root > path {
+    color: $c-neutral-70;
+  }
+
+  .MuiTypography-root {
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: $smallfontSize;
+    font-weight: $semiBoldFontWeight;
+  }
+}
