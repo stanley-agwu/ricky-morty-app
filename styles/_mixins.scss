@@ -9,14 +9,14 @@
   $font-weight,
   $line-height,
   $letter-spacing,
-  $color
+  $color: $c-navy-80
 ) {
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
   letter-spacing: $letter-spacing;
   color: $color;
-  font-family: $fontFamily;
+  // font-family: $fontFamily;
 }
 
 @mixin text-1 {
@@ -24,8 +24,43 @@
     $baseFontSize,
     $baseFontWeight,
     $baseLineHeight,
-    $baseLetterSpacing,
-    $fontColor
+    $baseLetterSpacing
+  );
+}
+
+@mixin text-2 {
+  @include text-format(
+    $smallfontSize,
+    $semiBoldFontWeight,
+    $baseLineHeight,
+    $baseLetterSpacing
+  );
+}
+
+@mixin heading-1 {
+  @include text-format(
+    $heading-1,
+    $boldFontWeight,
+    $baseLineHeight,
+    $baseLetterSpacing
+  );
+}
+
+@mixin heading-2 {
+  @include text-format(
+    $heading-2,
+    $boldFontWeight,
+    $baseLineHeight,
+    $baseLetterSpacing
+  );
+}
+
+@mixin heading-3 {
+  @include text-format(
+    $heading-3,
+    $boldFontWeight,
+    $baseLineHeight,
+    $baseLetterSpacing
   );
 }
 
