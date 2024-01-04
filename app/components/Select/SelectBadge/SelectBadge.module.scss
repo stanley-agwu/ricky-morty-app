@@ -1,0 +1,21 @@
+@use 'sass:math';
+@import '~styles/main';
+
+.selectBadge {
+  display: flex;
+  align-items: center;
+  padding: $space $space * 1.5;
+  border-radius: #{$space * 3};
+  background: $c-neutral-80;
+
+  div {
+    color: $c-neutral-0;
+  }
+}
+
+.closeButton {
+  all: unset;
+  display: flex;
+  margin-left: $space;
+  cursor: pointer;
+}

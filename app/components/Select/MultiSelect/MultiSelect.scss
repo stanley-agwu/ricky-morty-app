@@ -1,0 +1,19 @@
+@use 'sass:math';
+@import '~styles/main';
+
+#ReactSelect.MultiSelect {
+  & .ReactSelect {
+    &__placeholder {
+      color: $c-neutral-70;
+    }
+
+    &__option {
+      padding: 0 $space 0 math.div($space, 2);
+      & label {
+        @include text-button;
+        cursor: pointer;
+        margin: 0;
+      }
+    }
+  }
+}

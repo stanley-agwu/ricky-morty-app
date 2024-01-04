@@ -1,0 +1,78 @@
+@import '~styles/main';
+
+#ReactSelect {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+
+  .ReactSelect {
+    &__value-container {
+      gap: $space;
+    }
+
+    &__single-value {
+      @include text-button;
+    }
+
+    &__control {
+      min-height: 48px;
+      padding: $space * 0.25 $space;
+      background-color: $c-neutral-20;
+      border: none;
+      border-radius: $space;
+      box-shadow: none;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: inset 0 0 0 2px $c-neutral-50;
+      }
+
+      &--is-focused {
+        box-shadow: inset 0 0 0 2px $c-navy-50;
+
+        &:hover {
+          box-shadow: inset 0 0 0 2px $c-navy-50;
+        }
+      }
+    }
+
+    &__placeholder {
+      @include text-button;
+      color: $c-neutral-70;
+    }
+
+    &__option {
+      @include text-button;
+      color: $c-navy-80;
+      padding: $space $space-2;
+      cursor: pointer;
+
+      &--is-selected {
+        background-color: $c-navy-20;
+      }
+
+      &:hover {
+        background-color: $c-neutral-20;
+        color: $c-navy-80;
+      }
+    }
+
+    &__indicator-separator:first-child {
+      display: none;
+    }
+
+    &__multi-value {
+      margin: $space * 0.25 $space * 0.5;
+    }
+  }
+}
+
+#ReactSelect.ReactSelectError {
+  .ReactSelect {
+    &__control {
+      box-shadow: inset 0 0 0 2px $c-negative-60;
+    }
+  }
+}
+
+.select-chevron-open {
+  transform: scaleY(-1);
+}
