@@ -1,0 +1,33 @@
+@import '~styles/main';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  background-color: $c-neutral-0;
+  gap: $space * 0.5;
+  margin: $space-3 0;
+
+  h1 {
+    @include heading-2;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    @include heading-3;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    @include text-2;
+    color: $c-neutral-70;
+    padding: 0;
+  }
+}
+
+.paddingTop {
+  padding-top: $space * 1.5;
+}
