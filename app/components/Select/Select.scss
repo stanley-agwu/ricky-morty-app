@@ -1,7 +1,11 @@
 @import '~styles/main';
 
 #ReactSelect {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  // font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  & > div {
+    background-color: $c-neutral-20;
+    border-radius: $space;
+  }
 
   .ReactSelect {
     &__value-container {

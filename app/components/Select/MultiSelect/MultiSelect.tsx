@@ -30,9 +30,9 @@ interface FilterOptionOption<Option> {
 }
 
 export interface MultiSelectProps<
-  Option,
+  Option extends OptionType,
   IsMulti extends boolean,
-  Group extends GroupBase<Option> = GroupBase<Option>
+  Group extends GroupBase<Option>
 > extends SelectProps<Option, IsMulti, Group> {
   badgeString?: string;
   allOptionLabel?: string;
@@ -154,16 +154,18 @@ const MultiSelectCore = forwardRef(
     return (
       <Select
         isMulti
-        {...props}
+        {...(props as any)}
         ref={ref}
         className={`MultiSelect ${props.className || ''}`}
         inputValue={selectInput}
         onInputChange={onInputChange}
         onKeyDown={onKeyDown}
-        options={[
-          ...allOptionArray,
-          ...(props.options as OptionsOrGroups<Option, Group>),
-        ]}
+        options={
+          [
+            ...allOptionArray,
+            ...(props.options as OptionsOrGroups<Option, Group>),
+          ] as readonly (Option | GroupBase<Option>)[]
+        }
         onChange={handleChange}
         components={
           {
@@ -215,7 +217,7 @@ export const MultiSelect = forwardRef(
     };
     return (
       <MultiSelectCore
-        {...props}
+        {...(props as any)}
         ref={ref}
         value={optionSelected}
         onChange={handleChange}

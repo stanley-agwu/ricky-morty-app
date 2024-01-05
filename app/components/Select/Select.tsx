@@ -1,8 +1,9 @@
-import ReactSelect, { GroupBase, Props } from 'react-select';
+import ReactSelect, { type GroupBase, type Props } from 'react-select';
 import DropdownIndicator from './SelectDropdownIndicator';
 import SelectValueContainer from './SelectValueContainer';
 import { ForwardedRef, forwardRef } from 'react';
 import AsyncSelectComponent, { AsyncProps } from 'react-select/async';
+import type { Option as OptionType } from './MultiSelect/Option';
 
 import './Select.scss';
 
@@ -13,8 +14,8 @@ export type SelectProps<
 > = Props<Option, IsMulti, Group>;
 
 export const ReactSelectProps = <
-  Option,
-  IsMulti extends boolean,
+  Option extends OptionType,
+  IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>
 >(
   props: SelectProps<Option, IsMulti, Group>
@@ -37,9 +38,7 @@ export const Select = forwardRef(
   >(
     props: SelectProps<Option, IsMulti, Group>,
     ref: ForwardedRef<any>
-  ) => (
-    <ReactSelect {...props} ref={ref} {...(ReactSelectProps(props) as any)} />
-  )
+  ) => <ReactSelect {...props} ref={ref} {...ReactSelectProps(props as any)} />
 );
 
 Select.displayName = 'Select';
@@ -56,7 +55,7 @@ export const AsyncSelect = forwardRef(
     <AsyncSelectComponent
       {...props}
       ref={ref}
-      {...(ReactSelectProps(props) as any)}
+      {...(ReactSelectProps(props as any) as any)}
     />
   )
 );
