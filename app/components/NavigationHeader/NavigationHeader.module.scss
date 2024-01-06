@@ -1,0 +1,18 @@
+@import '~styles/main';
+
+.navigationHeader {
+  display: flex;
+  width: 100%;
+  background-color: $c-neutral-0;
+  gap: $space * 0.5;
+
+  .button {
+    display: flex;
+    align-items: center;
+    background-color: $c-neutral-0;
+    border: none;
+    cursor: pointer;
+    margin: $space-3 0 $space-2;
+    padding-top: calc($space * 0.5);
+  }
+}
