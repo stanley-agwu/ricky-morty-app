@@ -3,7 +3,7 @@
 import React from 'react';
 import { fetcher } from '../services/api-service';
 import { Table } from '../components/Table/Table/Table';
-import styles from './page.module.scss';
+import styles from '../page.module.scss';
 import { ContentContainer } from '../components/ContentBox/ContentBox';
 import {
   TableHead,
@@ -19,6 +19,7 @@ import { CharactersResult } from '../models';
 import { Select } from '../components/Select/Select';
 import { sx } from '../layout';
 import { NavigationHeader } from '../components/NavigationHeader/NavigationHeader';
+import { formateDate, getStriped } from '../utils/common';
 
 const Characters = () => {
   const { data, error, isLoading } = useSWR<CharactersResult>(
@@ -33,7 +34,11 @@ const Characters = () => {
     { value: 'unknown', label: 'Unknown' },
   ];
 
-  const getStriped = (idx: number) => idx % 2 === 0;
+  const statusOptions = [
+    { value: 'alive', label: 'Alive' },
+    { value: 'dead', label: 'dead' },
+    { value: 'unknown', label: 'Unknown' },
+  ];
 
   return (
     <ContentContainer className={styles.characters}>
@@ -46,6 +51,11 @@ const Characters = () => {
           options={genderOptions}
           placeholder='Filter by gender'
         />
+        <Select
+          isMulti
+          options={statusOptions}
+          placeholder='Filter by status'
+        />
       </div>
       <div className={styles.table}>
         <Table>
@@ -54,6 +64,7 @@ const Characters = () => {
               <HeaderCell {...sx}>Name</HeaderCell>
               <HeaderCell {...sx}>Status</HeaderCell>
               <HeaderCell {...sx}>Species</HeaderCell>
+              <HeaderCell {...sx}>Date created</HeaderCell>
             </Row>
           </TableHead>
           <TableBody className={styles.tablebody}>
@@ -67,6 +78,7 @@ const Characters = () => {
                 <Cell {...sx}>{character.name}</Cell>
                 <Cell {...sx}>{character.status}</Cell>
                 <Cell {...sx}>{character.species}</Cell>
+                <Cell {...sx}>{formateDate(character.created)}</Cell>
               </Row>
             ))}
           </TableBody>

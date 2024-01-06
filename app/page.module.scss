@@ -1,6 +1,7 @@
 @import '~styles/main';
 
-.characters {
+.characters,
+.locations {
   width: 100%;
   flex-direction: column;
 
@@ -8,6 +9,7 @@
     width: 100%;
     display: flex;
     margin-bottom: $space-2;
+    gap: $space-2;
 
     > div {
       min-width: 225px;
