@@ -1,0 +1,49 @@
+@import '~styles/main';
+
+.characters {
+  width: 100%;
+  flex-direction: column;
+
+  .select {
+    width: 100%;
+    display: flex;
+    margin-bottom: $space-2;
+
+    > div {
+      min-width: 225px;
+      white-space: nowrap;
+      max-width: 350px;
+    }
+
+    div > div > div > div {
+      margin: calc($space/4) 0;
+      cursor: pointer;
+    }
+  }
+
+  .table {
+    padding: 0 $space $space-3 0;
+    height: calc(100vh - 250px);
+    overflow: hidden;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      width: $space;
+      height: $space;
+    }
+    &::-webkit-scrollbar-track {
+      background: $c-neutral-20;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $c-neutral-60;
+      border-radius: $space * 0.5;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      overflow: auto;
+      padding-right: 0;
+    }
+  }
+}
