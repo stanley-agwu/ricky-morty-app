@@ -22,10 +22,7 @@ export function debounce(fn: Function, timeout: number = 250) {
 const innerWidth = global?.window && window.innerWidth;
 
 export const isMobile = () => innerWidth < mobileScreenMaxWidth;
-export const isTablet = () => {
-  // const { innerWidth } = window;
-  return innerWidth >= mobileScreenMaxWidth && innerWidth <= tabletScreenMaxWidth;
-};
+export const isTablet = () => innerWidth >= mobileScreenMaxWidth && innerWidth <= tabletScreenMaxWidth;
 
 export const BreakPointContext = createContext({ isMobile: isMobile(), isTablet: isTablet() });
 
@@ -43,14 +40,15 @@ export const useBreakPoints = () => {
         document.body.classList.remove('resizing-screen');
       }, 400);
       const nextIsMobile = isMobile();
-      const nextIsTablet = isTablet
+      const nextIsTablet = isTablet();
       setMobile(nextIsMobile);
       setTablet(nextIsTablet);
     };
 
     window.addEventListener('resize', debounce(handleResize, 50));
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window?.innerWidth]);
 
   return { isMobile: mobile, isTablet: tablet };
 }
