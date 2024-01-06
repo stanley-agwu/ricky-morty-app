@@ -9,7 +9,6 @@ import { BreakPointContext, useBreakPoints } from '@/app/hooks/useBreakPoints';
 import styles from './SidebarMenu.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Outlet } from 'react-router-dom';
 import { usePathname } from 'next/navigation';
 import { routes } from '@/app/config/routes';
 
@@ -48,23 +47,17 @@ const SidebarMenu = () => {
   );
 };
 
-const SidebarContainer = () => {
-  const breakpoints = useBreakPoints();
+const SidebarContainer = ({ isOpen = false }) =>
+  isOpen ? (
+    <div className={styles.sidebarContainer}>
+      <SidebarMenu />
+    </div>
+  ) : null;
 
-  return (
-    <BreakPointContext.Provider value={breakpoints}>
-      {breakpoints.isMobile ? (
-        <div className={styles.sidebarMobileContainer}>
-          <Outlet />
-        </div>
-      ) : (
-        <div className={styles.sidebarContainer}>
-          <SidebarMenu />
-          <Outlet />
-        </div>
-      )}
-    </BreakPointContext.Provider>
-  );
+export const DeskTopSidebar = () => {
+  const { isMobile } = useBreakPoints();
+  return <SidebarContainer isOpen={!isMobile} />;
 };
-
-export default SidebarContainer;
+export const MobileSidebar = ({ isOpen = false }) => (
+  <SidebarContainer isOpen={isOpen} />
+);

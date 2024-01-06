@@ -1,27 +1,23 @@
-.sidebarContainer,
-.sidebarMobileContainer {
+@import '~styles/main';
+
+.sidebarContainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: #fff;
-}
-
-.sidebarMobileContainer > div {
-  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: $c-neutral-0;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .sidebarContainer > div:first-child {
   flex-shrink: 0;
-  height: 100vh;
+  height: 100%;
   position: sticky;
   top: 0;
+  bottom: 0;
 
   h2 {
     margin-top: 0;
   }
-}
-
-.sidebarContainer > div:nth-child(2) {
-  width: 100%;
-  overflow: auto;
 }

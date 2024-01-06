@@ -5,8 +5,7 @@ $sidebar-width: 200px;
 h1.title {
   padding: $space-5 $space $space $space-3;
   word-break: break-all;
-  font-size: $largeFontSize;
-  color: $c-navy-80;
+  @include heading-3;
   margin-bottom: 100px;
   font-weight: $boldFontWeight;
 }
@@ -14,7 +13,7 @@ h1.title {
 .menu {
   border-right: 2px solid $c-neutral-30;
   width: $sidebar-width;
-  height: 100%;
+  height: auto;
 
   .list {
     all: unset;
@@ -40,14 +39,6 @@ h1.title {
     .itemTitle {
       color: $c-orange-80;
       background-color: $c-neutral-30;
-      img.icon {
-        color: $c-orange-80;
-        svg {
-          path {
-            stroke: red !important;
-          }
-        }
-      }
     }
     color: $c-orange-80;
     background-color: $c-neutral-30;
