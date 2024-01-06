@@ -1,0 +1,20 @@
+@use '../MenuCell/MenuCell.module.scss';
+@import '~styles/main';
+
+.userCell {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: $space;
+  flex-shrink: 0;
+}
+
+.noPadding {
+  padding: 0;
+}
+
+:global(.t-row.hover):hover .avatar {
+  background-color: $c-neutral-0;
+}

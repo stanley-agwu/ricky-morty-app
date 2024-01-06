@@ -1,0 +1,63 @@
+@import '~styles/main';
+
+$avatar-size: 40px;
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.menuIcon {
+  width: $space-3;
+  height: $space-3;
+}
+
+.menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $avatar-size;
+  height: $avatar-size;
+  border: 0;
+  background-color: transparent;
+  transition: background-color 0.3 cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $c-neutral-30;
+  }
+}
+
+.menuItems {
+  position: relative;
+  top: 85%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: $space;
+  box-shadow: 0 3px 8px 1px rgba(74, 92, 107, 0.2);
+  background-color: $c-neutral-0;
+  min-width: 100px;
+}
+
+.menuItem {
+  @include text-2;
+  padding: $space $space-3;
+  width: 100%;
+  height: $avatar-size;
+  border: 0;
+  border-radius: calc($space * 0.5);
+  text-align: left;
+  background-color: $c-neutral-0;
+  transition: background-color 0.3 cubic-bezier(0.215, 0.61, 0.355, 1);
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $c-neutral-20;
+    cursor: pointer;
+  }
+}

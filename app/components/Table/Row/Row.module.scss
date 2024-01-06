@@ -1,0 +1,30 @@
+@use 'sass:math';
+@import '~styles/main';
+
+tr.row {
+  height: 64px;
+  border-bottom: 1px solid $c-neutral-30;
+  vertical-align: middle;
+
+  &:global(.MuiTableRow-hover):hover {
+    border-bottom-color: $c-neutral-30;
+    background-color: $c-neutral-30;
+    cursor: pointer;
+
+    [class^='MenuCell_menuToggle']:hover {
+      background-color: $c-neutral-0;
+    }
+  }
+
+  &.striped {
+    background-color: $c-neutral-10;
+  }
+
+  &.selected {
+    background-color: $c-neutral-20;
+  }
+
+  &.tight {
+    height: 48px;
+  }
+}

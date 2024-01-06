@@ -1,0 +1,26 @@
+@import '~styles/main';
+
+.textCell {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  font-size: 18px;
+  font-weight: $boldFontWeight;
+}
+
+.text.small {
+  @include text-2;
+}
+
+.subtext {
+  font-size: $xSmallfontSize;
+  display: flex;
+  word-break: break-all;
+}
+
+.notification {
+  padding-left: $space;
+  color: $c-orange-80;
+}
